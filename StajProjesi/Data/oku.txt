@@ -1,0 +1,1 @@
+﻿efg generate -c "Server= BIDB002;initial catalog=StajProjesi; integrated security=true"

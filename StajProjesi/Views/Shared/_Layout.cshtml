@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StajProjesi</title>
+    <link rel="stylesheet" href="~/css/layout.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+</head>
+<body id="top">
+
+
+    <header id="header" class="hoc clear">
+        <section>
+            <div>
+                <h1 id="logo"><a href="#">T.C Gençlik ve Spor Bakanlığı</a></h1>
+            </div>
+            <div>
+                <form class="clear" method="post" action="#">
+                    <fieldset>
+                        <legend>Search:</legend>
+                        <input type="search" id="search" style="height:40px; width:250px" name="search" value="" placeholder="Gençlik Merkezi Ara &hellip;">
+                        <button class="fa fa-search" style="height:38px; width:40px; margin-right:-50px" type="submit" title="Search"><em>Search</em></button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        <nav id="mainav">
+
+            <ul class="clear">
+                <li class="active"> <a asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+
+                <li>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Kamp">Kamp Faliyetleri</a>*@
+                    <a href="https://e-genc.gsb.gov.tr/EGenc/Kurum/KurumList?kurumTipEnum=GenclikKampi">Kamp Faaliyetleri</a>
+
+                </li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - StajProjesi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

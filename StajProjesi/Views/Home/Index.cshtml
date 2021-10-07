@@ -1,0 +1,98 @@
+﻿@model StajProjesi.Models.SehirAramaViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+
+<body id="top">
+
+    <div class="wrapper row3">
+        <section class="hoc container clear">
+
+            <div style="float:left">
+
+                @*<h6 class="heading">  @ViewBag.Search </h6>*@
+                @*<h3> @Model.Sehirler.Count() </h3>*@
+
+                @foreach (var city in Model.Sehirler)
+                {
+                    <a style="color:black;" href="#"><h3>@city.Sehiradi GENÇLİK MERKEZİ</h3></a>
+
+
+                    @*<h1>
+                            @city.SehiridIlcelers.Count()
+                        </h1>*@
+
+                    <div class="group latest">
+                        <article class="one_half first">
+                            <a href="#"><img src="~/images/demo/474x356.png" alt="" style="margin-top:20px; "></a>
+                            <div class="excerpt" id="kutu">
+                                <h6 class="heading">
+                                    <a href="#">
+
+
+                                        @for (int i = 0; i < city.SehiridIlcelers.Count(); i++)
+                                        {
+                                            var ilce = city.SehiridIlcelers.ToList();
+                                            if (i % 2 == 1)
+                                            {
+                                                <h3>@ilce[i].İlceadi</h3>
+                                            }
+
+                                        }
+                                </h6>
+                            </div>
+                            @*<button onclick="gizleGoster()" style="color:black"> GİZLE/GÖSTER</button>*@
+                        </article>
+
+                        <article class="one_half">
+                            <a href="#"><img src="~/images/demo/474x356.png" alt="" style="margin-top:20px;"></a>
+                            <div class="excerpt" id="kutu2">
+                                <h6 class="heading">
+
+                                    <a href="#">
+
+
+                                        @for (int i = 0; i < city.SehiridIlcelers.Count(); i++)
+                                        {
+                                            var x = city.SehiridIlcelers.ToList();
+                                            if (i % 2 == 0)
+                                            {
+                                                <h3>@x[i].İlceadi</h3>
+                                            }
+                                        }
+                                    </a>
+                                </h6>
+
+                            </div>
+                            <button onclick="gizleGoster()" style="color:black">GİZLE/GÖSTER</button>
+                        </article>
+
+                    </div>
+                }
+        </section>
+    </div>
+    <script>
+       
+        function gizleGoster() {
+            var x = document.getElementsByClassName("excerpt");
+            for (var i = 0; i < x.length; i++) {
+                if (x[i].style.display === "none") {
+                    x[i].style.display = "block";
+                }
+                else {
+                    x[i].style.display = "none";
+                }
+            }
+        }
+
+      
+      
+
+
+    </script>
+</body>
+
+
